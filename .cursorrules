@@ -1,0 +1,141 @@
+# Dynamic CRM Project - Cursor Rules
+
+## 🎯 Project Overview
+
+This is a **Real Estate CRM application** built with:
+- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Shadcn/UI
+- **Backend**: tRPC for type-safe APIs
+- **Database**: Supabase (PostgreSQL) - integration in progress
+- **Maps**: Google Maps API - prepared, needs API key
+- **Package Manager**: pnpm with monorepo structure
+
+## 📂 Project Structure
+
+```
+/workspace
+├── apps/
+│   └── web/                    # Next.js application
+│       ├── app/
+│       │   ├── (app)/          # CRM pages (44 pages)
+│       │   │   ├── admin/      # User management, roles, settings
+│       │   │   ├── analytics/  # Analytics dashboard
+│       │   │   ├── calendar/   # Calendar events
+│       │   │   ├── calls/      # Call tracking
+│       │   │   ├── dashboard/  # 6 role-based dashboards
+│       │   │   ├── leads/      # Lead management
+│       │   │   ├── loyalty/    # Loyalty program
+│       │   │   ├── marketplace/# Marketplace listings
+│       │   │   ├── matching/   # Lead-property matching
+│       │   │   ├── properties/ # Property management + map
+│       │   │   └── tasks/      # Task management
+│       │   └── api/trpc/       # tRPC API endpoint
+│       ├── components/
+│       │   ├── layout/         # App shell, sidebar, header
+│       │   └── ui/             # Shadcn/UI components
+│       └── lib/
+│           ├── mock-data.ts    # Development mock data
+│           ├── trpc-server.ts  # Server-side tRPC routers
+│           ├── trpc.ts         # Client-side tRPC
+│           └── utils.ts        # Utility functions
+├── docs/architecture/          # Completion reports
+├── package.json               # Root package.json
+├── pnpm-workspace.yaml        # Monorepo config
+└── turbo.json                 # Turborepo config
+```
+
+## ✅ Current Status (Phase 5 Complete)
+
+**44 CRM Pages Built:**
+- Dashboards (6): Agent, Team Lead, Owner, Admin, Call Center, Marketplace
+- Leads (5): List, Detail, New, Edit, Import
+- Properties (8): Catalog, Map, Detail, New, Edit, Schedule, Import, Analytics
+- Matching (3): Workbench, Lead matches, Settings
+- Tasks (5): List, Detail, New, Calendar, Team
+- Calendar (4): Main, Detail, New, Settings
+- Calls (2): List, Detail
+- Admin (5): Users, Roles, Settings, Audit, System
+- Analytics (1): Dashboard
+- Loyalty (3): Dashboard, Leaderboard, Rewards
+- Marketplace (2): List, Detail
+
+**Backend Status:**
+- ✅ tRPC routers implemented for all modules
+- ⚠️ Currently using mock data (lib/mock-data.ts)
+- 🔄 Phase 6: Replace with real Supabase queries
+
+**Google Maps:**
+- ✅ Package installed (@react-google-maps/api)
+- ⚠️ Needs API key in .env.local: `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=`
+- 📍 Map page: /properties/map
+
+## 🔄 Phase 6 TODO (Real Backend Integration)
+
+1. **Supabase Integration**:
+   - Create Supabase client in lib/supabase.ts
+   - Replace mock data in lib/trpc-server.ts with Supabase queries
+   - Set DATABASE_URL and SUPABASE_URL in .env.local
+
+2. **Google Maps Integration**:
+   - Get API key from user
+   - Update /properties/map/page.tsx with real GoogleMap component
+
+3. **Testing**:
+   - Test all CRUD operations
+   - Verify multi-tenancy (office_id filtering)
+
+## 🛠️ Development Commands
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Type check
+pnpm lint
+```
+
+## 📝 Code Conventions
+
+- Use TypeScript strict mode
+- Shadcn/UI for all UI components
+- tRPC for all API calls (never call Supabase directly from components)
+- Turkish Lira (₺) for currency formatting
+- Tailwind CSS for styling
+- 'use client' directive for client components
+
+## 🔑 Environment Variables Needed
+
+```env
+# apps/web/.env.local
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-key-here
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+DATABASE_URL=your-database-url
+```
+
+## 📊 tRPC Routers
+
+Available routers in lib/trpc-server.ts:
+- `dashboard` - Stats and activity
+- `leads` - CRUD + filtering
+- `properties` - CRUD + map data + analytics
+- `tasks` - CRUD + calendar events
+- `matching` - Lead-property matching
+- `users` - User management
+- `calls` - Call tracking
+- `analytics` - Sales/conversion data
+- `admin` - System stats, audit logs, roles
+- `loyalty` - Program, leaderboard, rewards
+- `marketplace` - Listings, categories
+
+## 🚀 Quick Reference
+
+**Add new page**: `apps/web/app/(app)/[module]/page.tsx`
+**Add UI component**: `apps/web/components/ui/`
+**Add tRPC route**: `apps/web/lib/trpc-server.ts`
+**Add mock data**: `apps/web/lib/mock-data.ts`
