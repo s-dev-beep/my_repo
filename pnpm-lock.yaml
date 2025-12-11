@@ -14,6 +14,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@googlemaps/js-api-loader':
+        specifier: ^2.0.2
+        version: 2.0.2
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.10.0(react-hook-form@7.68.0)
@@ -86,6 +89,9 @@ importers:
       '@trpc/server':
         specifier: ^10.45.0
         version: 10.45.2
+      '@types/google.maps':
+        specifier: ^3.58.1
+        version: 3.58.1
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -277,6 +283,12 @@ packages:
 
   /@googlemaps/js-api-loader@1.16.8:
     resolution: {integrity: sha512-CROqqwfKotdO6EBjZO/gQGVTbeDps5V7Mt9+8+5Q+jTg5CRMi3Ii/L9PmV3USROrt2uWxtGzJHORmByxyo9pSQ==}
+    dev: false
+
+  /@googlemaps/js-api-loader@2.0.2:
+    resolution: {integrity: sha512-bKVuTqatS8Jven5aFqVB7rCHF1VFEzpzyi0ruzO0GUR+A7m9oMqMgtnmpANj7kMYEvvhty8Fk7TnJ1MKjWHu+Q==}
+    dependencies:
+      '@types/google.maps': 3.58.1
     dev: false
 
   /@googlemaps/markerclusterer@2.5.3:
