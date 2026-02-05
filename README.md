@@ -87,3 +87,7 @@ Use labels like:
 - sahibinden.com_araba
 - hepsiemlak_real-estate
 - arabam.com_araba
+
+Warm-up script (interactive):
+
+python scripts/warmup_cookies.py --url https://www.sahibinden.com --label sahibinden.com_real-estate --category real-estate
