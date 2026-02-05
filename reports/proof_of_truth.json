@@ -1,0 +1,129 @@
+{
+  "run_id": "proof_of_truth_test",
+  "timestamp": "2026-02-02T17:58:06.565524",
+  "mode": "safe_run",
+  "test_type": "synthetic_html_fixtures",
+  "summary": {
+    "total_listings_processed": 8,
+    "successfully_parsed": 8,
+    "successfully_normalized": 8,
+    "entities_extracted": 8,
+    "inserted_to_db": 8,
+    "quality_rejected": 0
+  },
+  "database_state": {
+    "total_listings": 8,
+    "total_offices": 7,
+    "total_agents": 8,
+    "offices_with_phone": 0,
+    "agents_with_phone": 0
+  },
+  "sample_offices": [
+    {
+      "_id": "6980bb7ea024de6eeefece95",
+      "name": "ETAP GAYRIMENKUL",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+902122345678"
+    },
+    {
+      "_id": "6980bb7ea024de6eeefece97",
+      "name": "CENTURY 21 ISTANBUL",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+902125678901"
+    },
+    {
+      "_id": "6980bb7ea024de6eeefece99",
+      "name": "ANKARA EMLAK DANI\u015eMANLARI",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+903124567890"
+    }
+  ],
+  "sample_agents": [
+    {
+      "_id": "6980bb7ea024de6eeefece96",
+      "name": "AHMET KAYA",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+902122345678"
+    },
+    {
+      "_id": "6980bb7ea024de6eeefece98",
+      "name": "FATIH \u00c7ELIK",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+902125678901"
+    },
+    {
+      "_id": "6980bb7ea024de6eeefece9a",
+      "name": "SERKAN DEMIR",
+      "_metadata": {
+        "test": true,
+        "source": "sahibinden"
+      },
+      "phone_number": "+903124567890"
+    }
+  ],
+  "sample_listings": [
+    {
+      "_id": "6980bb7ebe452bce7bae2839",
+      "office_name": "ETAP GAYRIMENKUL",
+      "agent_name": "AHMET KAYA",
+      "phone_number": "+902122345678",
+      "city": "Be\u015fikta\u015f",
+      "district": "Kiral\u0131k Daire",
+      "listing_url": "https://www.sahibinden.com/kiralik-daire-istanbul-besiktas-1",
+      "source": "sahibinden",
+      "confidence": "high",
+      "_metadata": {
+        "run_id": "proof_of_truth_test",
+        "test": true,
+        "confidence_numeric": 0.9
+      }
+    },
+    {
+      "_id": "6980bb7ebe452bce7bae283a",
+      "office_name": "CENTURY 21 ISTANBUL",
+      "agent_name": "FATIH \u00c7ELIK",
+      "phone_number": "+902125678901",
+      "city": "Fatih",
+      "district": "Kiral\u0131k Daire",
+      "listing_url": "https://www.sahibinden.com/kiralik-daire-istanbul-fatih-2",
+      "source": "sahibinden",
+      "confidence": "high",
+      "_metadata": {
+        "run_id": "proof_of_truth_test",
+        "test": true,
+        "confidence_numeric": 0.9
+      }
+    },
+    {
+      "_id": "6980bb7ebe452bce7bae283b",
+      "office_name": "ANKARA EMLAK DANI\u015eMANLARI",
+      "agent_name": "SERKAN DEMIR",
+      "phone_number": "+903124567890",
+      "city": "\u00c7ankaya",
+      "district": "Kiral\u0131k Daire",
+      "listing_url": "https://www.sahibinden.com/kiralik-daire-ankara-cankaya-3",
+      "source": "sahibinden",
+      "confidence": "high",
+      "_metadata": {
+        "run_id": "proof_of_truth_test",
+        "test": true,
+        "confidence_numeric": 0.9
+      }
+    }
+  ]
+}

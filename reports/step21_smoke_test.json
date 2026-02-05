@@ -1,0 +1,55 @@
+{
+  "run_id": "crawl_20260202_203240",
+  "start_time": "2026-02-02T20:32:40.431111",
+  "end_time": "2026-02-02T20:33:08.362142",
+  "duration_seconds": 27.931031,
+  "run_mode": "safe_run",
+  "stop_reason": null,
+  "parser_type": "sahibinden",
+  "total_urls": 3,
+  "successful": [],
+  "failures": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-216-sancaktepe-evlerinde-2-plus1-120m2-bahce-dubleksi-1287372619/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T20:33:08.356357",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-veysel-karani-mahallesinde-satilik-sifir-2-plus1-daire-1284900472/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T20:33:08.358104",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-yunus-emre-mah-de-3-plus1-ust-dubleks-satiliktir-1285200882/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T20:33:08.358693",
+      "step": "fetch",
+      "details": null
+    }
+  ],
+  "quality_rejections": [],
+  "stats": {
+    "total": 3,
+    "fetched": 0,
+    "parsed": 0,
+    "normalized": 0,
+    "inserted": 0,
+    "updated": 0,
+    "failed": 3,
+    "quality_rejected": 0
+  },
+  "failure_breakdown": {
+    "fetch_failed": 3,
+    "parse_failed": 0,
+    "normalize_failed": 0,
+    "persist_failed": 0,
+    "quality_rejected": 0
+  }
+}

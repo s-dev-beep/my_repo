@@ -1,0 +1,26 @@
+# Sahibinden Configuration
+# TODO: Define CSS selectors for various elements
+# TODO: Define URL patterns for pagination
+# TODO: Define listing card structure
+# TODO: Define field mappings
+
+sites:
+  sahibinden:
+    base_url: "https://www.sahibinden.com/kiralik-satilik-emlak"
+    enabled: true
+    
+    selectors:
+      listing_container: ".searchResultsTable"
+      listing_item: ".searchItem"
+      title: "h2.classifiedTitle"
+      price: ".searchItemPrice"
+      location: ".searchItemLocation"
+    
+    fields:
+      - title
+      - price
+      - location
+      - bedrooms
+      - sqm
+      - building_age
+      - url

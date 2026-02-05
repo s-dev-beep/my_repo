@@ -1,0 +1,73 @@
+# Default Configuration
+
+crawler:
+  # Concurrency settings
+  max_concurrent_tasks: 5
+  timeout: 30
+  max_retries: 3
+  
+  # Rate limiting
+  delay_between_requests: 2
+  delay_between_sites: 5
+  
+  # Storage
+  save_raw_html: true
+  raw_html_dir: "data/raw_html"
+  
+  # STEP 10: Execution modes
+  # - dry_run: No database writes, validation only
+  # - safe_run: Only high/medium confidence listings persist
+  # - full_run: All listings persist (default behavior)
+  run_mode: "full_run"
+  
+  # STEP 10: Safety stop conditions
+  safety:
+    # Stop if fetch failure rate exceeds this threshold (0.0 - 1.0)
+    # Example: 0.5 means stop if >50% of fetch attempts fail
+    max_fetch_failure_rate: 0.5
+    
+    # Stop if this many consecutive URLs are blocked/failed to fetch
+    # Indicates possible rate limiting or IP blocking
+    max_consecutive_blocks: 5
+    
+    # Stop if quality rejection rate exceeds this threshold (0.0 - 1.0)
+    # Example: 0.7 means stop if >70% of parsed listings fail quality gates
+    max_quality_rejection_rate: 0.7
+    
+    # Minimum URLs to process before applying safety checks
+    # Prevents early termination on small samples
+    min_urls_before_checks: 10
+
+sites:
+  sahibinden:
+    enabled: true
+    base_url: "https://www.sahibinden.com"
+    # TODO: Add site-specific config
+  
+  hepsiemlak:
+    enabled: true
+    base_url: "https://www.hepsiemlak.com"
+    # TODO: Add site-specific config
+
+database:
+  uri: "${MONGO_URI}"
+  db_name: "real_estate_crawler"
+  
+  # Collection settings
+  collections:
+    listings: "listings"
+    crawl_runs: "crawl_runs"
+    errors: "errors"
+
+logging:
+  level: "INFO"
+  format: "json"  # or "text"
+  file: "logs/crawler.log"
+  max_size: "100MB"
+  retention_days: 7
+
+# TODO: Add more configuration sections:
+# - Proxy settings
+# - Headers/User-Agent rotation
+# - Feature flags
+# - Performance tuning

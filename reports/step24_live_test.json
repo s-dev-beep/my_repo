@@ -1,0 +1,47 @@
+{
+  "run_id": "step24_20260203_020420",
+  "timestamp": "2026-02-03T02:04:20.673639",
+  "constraints": {
+    "urls_tested": 10,
+    "delay_min_seconds": 10.0,
+    "delay_max_seconds": 15.0,
+    "no_retries": true,
+    "no_proxy": true
+  },
+  "results": [
+    {
+      "index": 1,
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-216-sancaktepe-evlerinde-2-plus1-120m2-bahce-dubleksi-1287372619/detay",
+      "status_code": null,
+      "outcome": "error",
+      "error_reason": "Status 403 after 0 retries",
+      "request_duration_seconds": 10.593399
+    },
+    {
+      "index": 2,
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-kapali-terasli-satilik-ust-dubleks-daire-1285682855/detay",
+      "status_code": null,
+      "outcome": "error",
+      "error_reason": "Status 403 after 0 retries",
+      "request_duration_seconds": 0.025029
+    },
+    {
+      "index": 3,
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-belediye-yaninda-metroya-yakin-1.sinif-malzemeli-dubleks-1106459205/detay",
+      "status_code": null,
+      "outcome": "blocked",
+      "error_reason": "blocked_repeated",
+      "request_duration_seconds": 0.074078
+    }
+  ],
+  "summary": {
+    "total_requests": 3,
+    "successful": 0,
+    "blocked": 1,
+    "errors": 2,
+    "blocked_at_request": 3,
+    "total_duration_seconds": 24.204401374502208,
+    "success_rate": 0.0
+  },
+  "interpretation": "BLOCKED IMMEDIATELY - Need proxy or different approach"
+}

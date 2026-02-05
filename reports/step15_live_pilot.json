@@ -1,0 +1,103 @@
+{
+  "run_id": "crawl_20260202_185151",
+  "start_time": "2026-02-02T18:51:51.542812",
+  "end_time": "2026-02-02T18:52:15.432496",
+  "duration_seconds": 23.889684,
+  "run_mode": "safe_run",
+  "stop_reason": "Fetch failure rate 100.0% exceeds threshold 50.0% (9/9 failed)",
+  "parser_type": "sahibinden",
+  "total_urls": 10,
+  "successful": [],
+  "failures": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-216-sancaktepe-evlerinde-2-plus1-120m2-bahce-dubleksi-1287372619/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.422116",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-kapali-terasli-satilik-ust-dubleks-daire-1285682855/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.423150",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-belediye-yaninda-metroya-yakin-1.sinif-malzemeli-dubleks-1106459205/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.424094",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-veysel-karani-mahallesinde-satilik-sifir-2-plus1-daire-1284900472/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.424823",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-merve-mah-3-plus2-170m2-cift-girisli-dubleks-acik-otopark-1256817441/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.425403",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-veysel-karani-mah-doga-manzarali-satilik-2-plus1-arakat-1280819905/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.425844",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-yunus-emre-mah-de-3-plus1-ust-dubleks-satiliktir-1285200882/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.426266",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sarigazi-kemal-turkler-mahallesi-satilik-3-plus1-daire-1274736256/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.427473",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-sancaktepe-cekmekoy-sinpas-aqua-city-2010-buyuk-balkonlu-1-plus1-1292321080/detay",
+      "category": "fetch_failed",
+      "reason": "Repeated blocking detected for www.sahibinden.com: 3 blocks in 60s. Stopping to respect server limits.",
+      "timestamp": "2026-02-02T18:52:15.428437",
+      "step": "fetch",
+      "details": null
+    }
+  ],
+  "quality_rejections": [],
+  "stats": {
+    "total": 10,
+    "fetched": 0,
+    "parsed": 0,
+    "normalized": 0,
+    "inserted": 0,
+    "updated": 0,
+    "failed": 9,
+    "quality_rejected": 0
+  },
+  "failure_breakdown": {
+    "fetch_failed": 9,
+    "parse_failed": 0,
+    "normalize_failed": 0,
+    "persist_failed": 0,
+    "quality_rejected": 0
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "run_id": "safe_run_example_20260202",
+  "start_time": "2026-02-02T14:35:10.111111",
+  "end_time": "2026-02-02T14:36:22.333333",
+  "duration_seconds": 72.22,
+  "run_mode": "safe_run",
+  "stop_reason": null,
+  "parser_type": "sahibinden",
+  "total_urls": 10,
+  "successful": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-kadikoy-123456",
+      "listing_id": "507f1f77bcf86cd799439011",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:35:20.123456",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-besiktas-234567",
+      "listing_id": "507f1f77bcf86cd799439022",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:35:28.234567",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-ankara-cankaya-345678",
+      "listing_id": "507f1f77bcf86cd799439033",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:35:36.345678",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-izmir-bornova-456789",
+      "listing_id": "507f1f77bcf86cd799439044",
+      "operation": "updated",
+      "timestamp": "2026-02-02T14:35:44.456789",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-bursa-osmangazi-567890",
+      "listing_id": "507f1f77bcf86cd799439055",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:35:52.567890",
+      "confidence": "medium"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://invalid-url-example.com/test",
+      "category": "fetch_failed",
+      "reason": "Network error: Name or service not known",
+      "timestamp": "2026-02-02T14:36:00.678901",
+      "step": "fetch",
+      "details": null
+    }
+  ],
+  "quality_rejections": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-low-quality-111222",
+      "reason": "Low confidence listing with no phone number",
+      "timestamp": "2026-02-02T14:36:08.789012",
+      "data_snapshot": {
+        "office_name": "UNKNOWN OFFICE",
+        "agent_name": null,
+        "phone_number": null,
+        "city": "Istanbul",
+        "district": "Kadikoy",
+        "listing_url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-low-quality-111222",
+        "source": "sahibinden",
+        "confidence": "low"
+      }
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "fetched": 9,
+    "parsed": 9,
+    "normalized": 8,
+    "inserted": 4,
+    "updated": 1,
+    "failed": 1,
+    "quality_rejected": 1
+  },
+  "failure_breakdown": {
+    "fetch_failed": 1,
+    "parse_failed": 0,
+    "normalize_failed": 0,
+    "persist_failed": 0,
+    "quality_rejected": 1
+  }
+}

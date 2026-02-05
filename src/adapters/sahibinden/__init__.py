@@ -1,0 +1,1 @@
+"""Sahibinden site adapter."""

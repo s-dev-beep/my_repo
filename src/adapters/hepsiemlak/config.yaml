@@ -1,0 +1,26 @@
+# Hepsiemlak Configuration
+# TODO: Define CSS selectors for various elements
+# TODO: Define URL patterns for pagination
+# TODO: Define listing card structure
+# TODO: Define field mappings
+
+sites:
+  hepsiemlak:
+    base_url: "https://www.hepsiemlak.com"
+    enabled: true
+    
+    selectors:
+      listing_container: ".listings"
+      listing_item: ".listing-card"
+      title: ".listing-title"
+      price: ".listing-price"
+      location: ".listing-location"
+    
+    fields:
+      - title
+      - price
+      - location
+      - bedrooms
+      - sqm
+      - building_age
+      - url

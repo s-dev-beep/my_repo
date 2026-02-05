@@ -1,0 +1,184 @@
+{
+  "run_id": "safety_stop_fetch_20260202",
+  "start_time": "2026-02-02T14:40:00.000000",
+  "end_time": "2026-02-02T14:41:15.555555",
+  "duration_seconds": 75.56,
+  "run_mode": "full_run",
+  "stop_reason": "Fetch failure rate 60.0% exceeds threshold 50.0% (12/20 failed)",
+  "parser_type": "sahibinden",
+  "total_urls": 50,
+  "successful": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-kadikoy-100001",
+      "listing_id": "507f1f77bcf86cd799440001",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:10.111111",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-besiktas-100002",
+      "listing_id": "507f1f77bcf86cd799440002",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:18.222222",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-ankara-cankaya-100003",
+      "listing_id": "507f1f77bcf86cd799440003",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:26.333333",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-izmir-bornova-100004",
+      "listing_id": "507f1f77bcf86cd799440004",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:34.444444",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-bursa-osmangazi-100005",
+      "listing_id": "507f1f77bcf86cd799440005",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:42.555555",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-antalya-muratpasa-100006",
+      "listing_id": "507f1f77bcf86cd799440006",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:50.666666",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-adana-seyhan-100007",
+      "listing_id": "507f1f77bcf86cd799440007",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:40:58.777777",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-gaziantep-sehitkamil-100008",
+      "listing_id": "507f1f77bcf86cd799440008",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:41:06.888888",
+      "confidence": "high"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://invalid-domain-00001.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:15.111111",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00002.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:22.222222",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00003.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:30.333333",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00004.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:38.444444",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00005.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:46.555555",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00006.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:40:54.666666",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00007.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:41:02.777777",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00008.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:41:10.888888",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00009.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:41:13.999999",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/broken-structure-99999",
+      "category": "parse_failed",
+      "reason": "Parser returned None",
+      "timestamp": "2026-02-02T14:41:12.000000",
+      "step": "parse",
+      "details": null
+    },
+    {
+      "url": "not-a-valid-url-format",
+      "category": "fetch_failed",
+      "reason": "URL must start with http:// or https://",
+      "timestamp": "2026-02-02T14:41:14.111111",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://invalid-domain-00010.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:41:15.222222",
+      "step": "fetch",
+      "details": null
+    }
+  ],
+  "quality_rejections": [],
+  "stats": {
+    "total": 50,
+    "fetched": 9,
+    "parsed": 8,
+    "normalized": 8,
+    "inserted": 8,
+    "updated": 0,
+    "failed": 12,
+    "quality_rejected": 0
+  },
+  "failure_breakdown": {
+    "fetch_failed": 11,
+    "parse_failed": 1,
+    "normalize_failed": 0,
+    "persist_failed": 0,
+    "quality_rejected": 0
+  }
+}
