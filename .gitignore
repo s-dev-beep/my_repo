@@ -48,6 +48,15 @@ ENV/
 data/raw_html/*
 !data/raw_html/.gitkeep
 
+# Browser profiles / caches (volatile)
+data/chrome-remote/
+data/playwright/
+data/browser-profiles/
+data/storage/
+data/profile/
+data/profiles/
+data/*cache*/
+
 # Logs
 logs/*
 !logs/.gitkeep

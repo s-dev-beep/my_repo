@@ -51,6 +51,16 @@ nano .env
 python -m src.cli
 ```
 
+## Docker (recommended for Ubuntu parity)
+
+```bash
+# Build image
+docker build -t real-estate-crawler .
+
+# Run
+docker run --rm -it --env-file .env real-estate-crawler
+```
+
 ## Next Steps
 
 - Implement core crawler logic
