@@ -48,57 +48,70 @@ class Cookie:
 class CookieJar:
     """Manages persistent browser cookies."""
     
-    def __init__(self, storage_dir: str = "/Users/mustafaaksoz/Bot/data/cookies"):
+    def __init__(self, storage_dir: Optional[str] = None):
         """Initialize cookie jar."""
-        self.storage_dir = Path(storage_dir)
+        base_dir = storage_dir or os.getenv("BOT_DATA_DIR") or str(Path("data"))
+        self.storage_dir = Path(base_dir) / "cookies"
         self.storage_dir.mkdir(parents=True, exist_ok=True)
         
-    def get_cookie_file(self, domain: str) -> Path:
-        """Get path for domain's cookie file."""
-        safe_domain = domain.replace('/', '_').replace(':', '_')
-        return self.storage_dir / f"{safe_domain}.json"
+    def get_cookie_file(self, label: str) -> Path:
+        """Get path for a label-specific cookie file."""
+        safe_label = label.replace('/', '_').replace(':', '_').replace(' ', '_')
+        return self.storage_dir / f"{safe_label}.json"
     
-    def save_cookies(self, domain: str, selenium_cookies: List[Dict]) -> int:
+    def save_cookies(self, domain: str, selenium_cookies: List[Dict], label: Optional[str] = None, category: Optional[str] = None) -> int:
         """
         Save Selenium cookies to disk.
         
         Args:
             domain: Domain to save for (e.g., 'sahibinden.com')
             selenium_cookies: List of dicts from driver.get_cookies()
+            label: Label for cookie set (e.g., 'sahibinden.com_real-estate')
+            category: Content category (e.g., 'real-estate', 'araba')
             
         Returns:
             Number of cookies saved
         """
+        label = label or domain
         cookies = [Cookie(c) for c in selenium_cookies]
         
-        cookie_file = self.get_cookie_file(domain)
+        cookie_file = self.get_cookie_file(label)
+        
+        payload = {
+            "label": label,
+            "domain": domain,
+            "category": category,
+            "updated_at": datetime.utcnow().isoformat(),
+            "cookies": [c.to_dict() for c in cookies],
+        }
         
         with open(cookie_file, 'w') as f:
-            json.dump([c.to_dict() for c in cookies], f, indent=2)
+            json.dump(payload, f, indent=2)
         
-        print(f"✅ Saved {len(cookies)} cookies to {cookie_file.name}")
+        print(f"✅ Saved {len(cookies)} cookies to {cookie_file.name} (label={label})")
         return len(cookies)
     
-    def load_cookies(self, domain: str) -> Optional[List[Dict]]:
+    def load_cookies(self, label: str) -> Optional[List[Dict]]:
         """
         Load cookies from disk.
         
         Args:
-            domain: Domain to load for
+            label: Label to load for
             
         Returns:
             List of valid (non-expired) cookies, or None if file doesn't exist
         """
-        cookie_file = self.get_cookie_file(domain)
+        cookie_file = self.get_cookie_file(label)
         
         if not cookie_file.exists():
-            print(f"⚠️ No cookies found for {domain}")
+            print(f"⚠️ No cookies found for {label}")
             return None
         
         try:
             with open(cookie_file, 'r') as f:
-                cookie_dicts = json.load(f)
+                payload = json.load(f)
             
+            cookie_dicts = payload.get("cookies", []) if isinstance(payload, dict) else payload
             cookies = [Cookie(c) for c in cookie_dicts]
             
             # Filter out expired cookies
@@ -110,24 +123,34 @@ class CookieJar:
             
             print(f"✅ Loaded {len(valid_cookies)} valid cookies from {cookie_file.name}")
             
-            return [c.to_dict() for c in valid_cookies] if valid_cookies else None
+            if not valid_cookies:
+                try:
+                    cookie_file.unlink(missing_ok=True)
+                    print(f"🧹 Removed stale cookie file {cookie_file.name}")
+                except Exception:
+                    pass
+                return None
+
+            return [c.to_dict() for c in valid_cookies]
             
         except Exception as e:
             print(f"❌ Error loading cookies: {e}")
             return None
     
-    def apply_cookies_to_driver(self, driver, domain: str) -> bool:
+    def apply_cookies_to_driver(self, driver, domain: str, label: Optional[str] = None) -> bool:
         """
         Apply stored cookies to Selenium driver.
         
         Args:
             driver: Selenium WebDriver
             domain: Domain to load cookies for
+            label: Label to load cookies for (defaults to domain)
             
         Returns:
             True if cookies were applied, False otherwise
         """
-        cookies = self.load_cookies(domain)
+        label = label or domain
+        cookies = self.load_cookies(label)
         if not cookies:
             return False
         
@@ -156,32 +179,32 @@ class CookieJar:
                     # Some cookies may fail, continue with others
                     pass
             
-            print(f"✅ Applied cookies to driver")
+            print(f"✅ Applied cookies to driver (label={label})")
             return True
             
         except Exception as e:
             print(f"❌ Error applying cookies: {e}")
             return False
     
-    def clear_cookies(self, domain: str) -> bool:
-        """Clear stored cookies for a domain."""
-        cookie_file = self.get_cookie_file(domain)
+    def clear_cookies(self, label: str) -> bool:
+        """Clear stored cookies for a label."""
+        cookie_file = self.get_cookie_file(label)
         
         try:
             if cookie_file.exists():
                 os.remove(cookie_file)
-                print(f"✅ Cleared cookies for {domain}")
+                print(f"✅ Cleared cookies for {label}")
                 return True
             else:
-                print(f"⚠️ No cookies found for {domain}")
+                print(f"⚠️ No cookies found for {label}")
                 return False
         except Exception as e:
             print(f"❌ Error clearing cookies: {e}")
             return False
     
-    def get_cookies_age(self, domain: str) -> Optional[str]:
+    def get_cookies_age(self, label: str) -> Optional[str]:
         """Get age of stored cookies."""
-        cookie_file = self.get_cookie_file(domain)
+        cookie_file = self.get_cookie_file(label)
         
         if not cookie_file.exists():
             return None
@@ -194,42 +217,42 @@ class CookieJar:
         else:
             return f"{age.seconds // 3600} hours {(age.seconds % 3600) // 60} minutes"
     
-    def cookies_exist_and_valid(self, domain: str) -> bool:
-        """Check if valid cookies exist for domain."""
-        cookies = self.load_cookies(domain)
+    def cookies_exist_and_valid(self, label: str) -> bool:
+        """Check if valid cookies exist for label."""
+        cookies = self.load_cookies(label)
         return cookies is not None and len(cookies) > 0
 
 
 class CookieManager:
     """High-level cookie management."""
     
-    def __init__(self):
+    def __init__(self, storage_dir: Optional[str] = None):
         """Initialize cookie manager."""
-        self.jar = CookieJar()
+        self.jar = CookieJar(storage_dir=storage_dir)
     
-    def save_from_driver(self, driver, domain: str) -> bool:
+    def save_from_driver(self, driver, domain: str, label: Optional[str] = None, category: Optional[str] = None) -> bool:
         """Save all cookies from browser driver."""
         try:
             cookies = driver.get_cookies()
-            self.jar.save_cookies(domain, cookies)
+            self.jar.save_cookies(domain, cookies, label=label, category=category)
             return True
         except Exception as e:
             print(f"❌ Error saving cookies from driver: {e}")
             return False
     
-    def load_to_driver(self, driver, domain: str) -> bool:
+    def load_to_driver(self, driver, domain: str, label: Optional[str] = None) -> bool:
         """Load cookies into browser driver."""
-        return self.jar.apply_cookies_to_driver(driver, domain)
+        return self.jar.apply_cookies_to_driver(driver, domain, label=label)
     
-    def status(self, domain: str) -> Dict[str, Any]:
-        """Get status of cookies for a domain."""
-        exists = self.jar.get_cookie_file(domain).exists()
-        age = self.jar.get_cookies_age(domain)
-        valid = self.jar.cookies_exist_and_valid(domain)
+    def status(self, label: str) -> Dict[str, Any]:
+        """Get status of cookies for a label."""
+        exists = self.jar.get_cookie_file(label).exists()
+        age = self.jar.get_cookies_age(label)
+        valid = self.jar.cookies_exist_and_valid(label)
         
         return {
             'exists': exists,
             'valid': valid,
             'age': age,
-            'file': str(self.jar.get_cookie_file(domain)),
+            'file': str(self.jar.get_cookie_file(label)),
         }

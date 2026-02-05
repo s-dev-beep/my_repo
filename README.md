@@ -1,14 +1,15 @@
-# Real Estate Crawler
+# Real Estate Crawler (Light)
 
-A production-grade, config-driven web crawler for Turkish real estate sites (Sahibinden, Hepsiemlak).
+A lightweight crawler for Turkish real estate listings (Sahibinden, Hepsiemlak). It focuses on one job: collect listing contact/location info and append it to MongoDB and/or CSV.
 
 ## Features
 
-- **Stability First**: Robust error handling, retry mechanisms, deduplication
+- **Stability First**: Robust error handling, retry mechanisms
 - **Config-Driven**: YAML-based site configurations, environment variables
 - **Async Architecture**: Concurrent crawling with controlled concurrency
 - **Structured Logging**: Detailed logging for debugging and monitoring
-- **MongoDB Integration**: Data persistence for analysis
+- **MongoDB Integration**: Append-only persistence (no overwrite, no dedup)
+- **CSV Export**: Append normalized listings to CSV
 - **Site Adapters**: Modular, site-specific parsers
 
 ## Tech Stack
@@ -47,8 +48,14 @@ cp .env.example .env
 # Edit .env with your configuration
 nano .env
 
-# Run crawler
-python -m src.cli
+# Run crawler (append-only by default)
+python -m src.cli crawl urls.txt
+
+# Append-only + CSV export
+python -m src.cli crawl urls.txt --mode append_only --output-csv exports/listings.csv
+
+# CSV-only (no database)
+python -m src.cli crawl urls.txt --mode append_only --output-csv exports/listings.csv --no-db
 ```
 
 ## Docker (recommended for Ubuntu parity)
@@ -58,12 +65,25 @@ python -m src.cli
 docker build -t real-estate-crawler .
 
 # Run
-docker run --rm -it --env-file .env real-estate-crawler
+docker run --rm -it --env-file .env real-estate-crawler crawl /app/urls.txt
 ```
 
-## Next Steps
+## Cache cleanup
 
-- Implement core crawler logic
-- Add MongoDB models
-- Create site-specific adapters
-- Add testing framework
+Remove old cache/artifact files (default: older than 7 days):
+
+python scripts/cleanup_cache.py
+
+Dry run:
+
+python scripts/cleanup_cache.py --dry-run --days 14
+
+## Labeled cookies (VPS)
+
+Cookie files are stored per label and overwritten on each warm-up to avoid growth.
+Use labels like:
+
+- sahibinden.com_real-estate
+- sahibinden.com_araba
+- hepsiemlak_real-estate
+- arabam.com_araba
