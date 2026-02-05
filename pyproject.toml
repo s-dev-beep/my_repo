@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "real-estate-crawler"
+version = "0.1.0"
+description = "Production-grade real estate crawler for Turkish property sites"
+requires-python = ">=3.11"
+authors = [{name = "Your Team"}]
+dependencies = [
+    "beautifulsoup4>=4.12.0",
+    "pydantic>=2.5.0",
+    "pyyaml>=6.0.0",
+    "python-dotenv>=1.0.0",
+    "pymongo>=4.6.0",
+    "tenacity>=8.2.0",
+    "playwright>=1.40.0",
+]
+
+# For HTTP fetching (required for production)
+requires = [
+    "aiohttp>=3.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.12.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

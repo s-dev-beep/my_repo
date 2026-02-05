@@ -1,0 +1,1 @@
+"""Hepsiemlak site adapter."""
