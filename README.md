@@ -67,11 +67,19 @@ curl -fsSL https://raw.githubusercontent.com/s-dev-beep/bot/main/scripts/bootstr
 bash bootstrap_vps.sh
 ```
 
+For private Docker Hub image (required for private repo):
+
+```bash
+DOCKER_USER=mechul DOCKER_TOKEN=<your_docker_token> bash bootstrap_vps.sh
+```
+
 Optional overrides:
 
 ```bash
-BOT_DIR=/home/sudeozyurt/Bot REPO_URL=https://github.com/s-dev-beep/bot.git bash bootstrap_vps.sh
+BOT_DIR=/home/sudeozyurt/Bot REPO_URL=https://github.com/s-dev-beep/bot.git DOCKER_USER=mechul DOCKER_TOKEN=<token> bash bootstrap_vps.sh
 ```
+
+**Note**: Get your Docker token at https://hub.docker.com/settings/security
 
 ## Docker (recommended for Ubuntu parity)
 
