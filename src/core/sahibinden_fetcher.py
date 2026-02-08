@@ -4,7 +4,7 @@ Integrated VPN + CAPTCHA + Cookie-based fetcher for Sahibinden.
 Implements both cookie reuse and CAPTCHA service for maximum flexibility.
 """
 
-import sys
+import os
 import time
 import asyncio
 import undetected_chromedriver as uc
@@ -12,8 +12,6 @@ from typing import Optional, Dict, Any, Tuple
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 
-# Local imports
-sys.path.insert(0, '/Users/mustafaaksoz/Bot')
 from src.core.cookie_manager import CookieManager
 from src.core.captcha_manager import CaptchaManager
 
@@ -71,11 +69,19 @@ class SahibindenFetcher:
     def _init_driver(self, headless: bool = False) -> uc.Chrome:
         """Initialize Selenium Chrome driver."""
         print("🌐 Initializing browser...")
-        driver = uc.Chrome(
-            headless=headless,
-            version_main=144,
-            use_subprocess=True,
-        )
+        options: Dict[str, Any] = {
+            "headless": headless,
+            "use_subprocess": True,
+        }
+
+        version_main = os.getenv("CHROME_VERSION_MAIN")
+        if version_main:
+            try:
+                options["version_main"] = int(version_main)
+            except ValueError:
+                print(f"⚠️ Invalid CHROME_VERSION_MAIN={version_main}, ignoring")
+
+        driver = uc.Chrome(**options)
         
         # Set timeouts
         driver.set_page_load_timeout(30)

@@ -7,6 +7,7 @@ Opens a browser so you can solve CAPTCHA/login, then saves cookies under a label
 from __future__ import annotations
 
 import argparse
+import time
 from typing import List, Dict, Any
 
 from src.core.cookie_manager import CookieManager
@@ -36,6 +37,7 @@ def main() -> int:
     parser.add_argument("--label", required=True, help="Cookie label (e.g., sahibinden.com_real-estate)")
     parser.add_argument("--category", default=None, help="Optional category (e.g., real-estate, araba)")
     parser.add_argument("--headless", action="store_true", help="Run browser headless")
+    parser.add_argument("--wait-seconds", type=int, default=0, help="Wait N seconds before saving cookies (non-interactive)")
     args = parser.parse_args()
 
     try:
@@ -54,7 +56,11 @@ def main() -> int:
         context = browser.new_context()
         page = context.new_page()
         page.goto(args.url, wait_until="domcontentloaded")
-        input("Solve CAPTCHA/login, then press Enter to save cookies...")
+        if args.wait_seconds > 0:
+            print(f"Waiting {args.wait_seconds}s before saving cookies...")
+            time.sleep(args.wait_seconds)
+        else:
+            input("Solve CAPTCHA/login, then press Enter to save cookies...")
         cookies = context.cookies()
         selenium_cookies = _playwright_to_selenium(cookies)
         manager.jar.save_cookies(domain=page.url.split("/")[2], selenium_cookies=selenium_cookies, label=args.label, category=args.category)

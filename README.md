@@ -58,6 +58,21 @@ python -m src.cli crawl urls.txt --mode append_only --output-csv exports/listing
 python -m src.cli crawl urls.txt --mode append_only --output-csv exports/listings.csv --no-db
 ```
 
+## One-command VPS bootstrap
+
+On a fresh Ubuntu VPS:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/s-dev-beep/bot/main/scripts/bootstrap_vps.sh -o bootstrap_vps.sh
+bash bootstrap_vps.sh
+```
+
+Optional overrides:
+
+```bash
+BOT_DIR=/home/sudeozyurt/Bot REPO_URL=https://github.com/s-dev-beep/bot.git bash bootstrap_vps.sh
+```
+
 ## Docker (recommended for Ubuntu parity)
 
 ```bash
@@ -91,3 +106,14 @@ Use labels like:
 Warm-up script (interactive):
 
 python scripts/warmup_cookies.py --url https://www.sahibinden.com --label sahibinden.com_real-estate --category real-estate
+
+Non-interactive (wait N seconds):
+
+python scripts/warmup_cookies.py --url https://www.sahibinden.com --label sahibinden.com_real-estate --category real-estate --wait-seconds 60
+
+Docker (interactive, saves to ./data/cookies on host):
+
+docker run --rm -it \
+	-v $PWD/data:/app/data \
+	mechul/real-estate-crawler:latest \
+	python /app/scripts/warmup_cookies.py --url https://www.sahibinden.com --label sahibinden.com_real-estate --category real-estate

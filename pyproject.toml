@@ -16,11 +16,9 @@ dependencies = [
     "pymongo>=4.6.0",
     "tenacity>=8.2.0",
     "playwright>=1.40.0",
-]
-
-# For HTTP fetching (required for production)
-requires = [
     "aiohttp>=3.9.0",
+    "selenium>=4.16.0",
+    "undetected-chromedriver>=3.5.5",
 ]
 
 [project.optional-dependencies]
@@ -32,8 +30,9 @@ dev = [
     "mypy>=1.7.0",
 ]
 
-[tool.setuptools]
-packages = ["src"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
 
 [tool.black]
 line-length = 100
