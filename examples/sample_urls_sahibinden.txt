@@ -1,0 +1,6 @@
+# Example URLs for sahibinden.com
+# Lines starting with # are comments and will be ignored
+
+https://www.sahibinden.com/ilan/emlak-konut-satilik-sample-listing-1
+https://www.sahibinden.com/ilan/emlak-konut-satilik-sample-listing-2
+https://www.sahibinden.com/ilan/emlak-konut-satilik-sample-listing-3

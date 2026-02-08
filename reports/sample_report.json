@@ -1,0 +1,154 @@
+{
+  "run_id": "crawl_20260202_143022",
+  "start_time": "2026-02-02T14:30:22.451789",
+  "end_time": "2026-02-02T14:32:18.892341",
+  "duration_seconds": 116.44,
+  "parser_type": "sahibinden",
+  "total_urls": 15,
+  "successful": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-kadikoy-123456",
+      "listing_id": "507f1f77bcf86cd799439011",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:30:35.123456",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-besiktas-234567",
+      "listing_id": "507f1f77bcf86cd799439022",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:30:48.789012",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-ankara-cankaya-345678",
+      "listing_id": "507f1f77bcf86cd799439033",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:31:02.456789",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-izmir-bornova-456789",
+      "listing_id": "507f1f77bcf86cd799439044",
+      "operation": "updated",
+      "timestamp": "2026-02-02T14:31:15.234567",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-uskudar-567890",
+      "listing_id": "507f1f77bcf86cd799439055",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:31:28.901234",
+      "confidence": "medium"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-bursa-osmangazi-678901",
+      "listing_id": "507f1f77bcf86cd799439066",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:31:42.567890",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-ankara-kecioren-789012",
+      "listing_id": "507f1f77bcf86cd799439077",
+      "operation": "inserted",
+      "timestamp": "2026-02-02T14:31:55.123456",
+      "confidence": "high"
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-istanbul-sariyer-890123",
+      "listing_id": "507f1f77bcf86cd799439088",
+      "operation": "updated",
+      "timestamp": "2026-02-02T14:32:08.789012",
+      "confidence": "medium"
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://invalid-domain-12345.com/ilan/test",
+      "category": "fetch_failed",
+      "reason": "Network error after 3 retries: Name or service not known",
+      "timestamp": "2026-02-02T14:30:52.345678",
+      "step": "fetch",
+      "details": null
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/broken-structure-999888",
+      "category": "parse_failed",
+      "reason": "Parser returned None",
+      "timestamp": "2026-02-02T14:31:35.678901",
+      "step": "parse",
+      "details": null
+    },
+    {
+      "url": "not-a-valid-url-at-all",
+      "category": "fetch_failed",
+      "reason": "URL must start with http:// or https://: not-a-valid-url-at-all",
+      "timestamp": "2026-02-02T14:32:00.234567",
+      "step": "fetch",
+      "details": null
+    }
+  ],
+  "quality_rejections": [
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-low-quality-111222",
+      "reason": "Low confidence listing with no phone number",
+      "timestamp": "2026-02-02T14:31:22.890123",
+      "data_snapshot": {
+        "office_name": "UNKNOWN OFFICE",
+        "agent_name": null,
+        "phone_number": null,
+        "city": "Istanbul",
+        "district": "Kadikoy",
+        "listing_url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-low-quality-111222",
+        "source": "sahibinden",
+        "confidence": "low"
+      }
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-no-location-333444",
+      "reason": "Missing both city and district location data",
+      "timestamp": "2026-02-02T14:31:48.456789",
+      "data_snapshot": {
+        "office_name": "EV GAYRIMENKUL",
+        "agent_name": "MEHMET DEMIR",
+        "phone_number": "+905321234567",
+        "city": null,
+        "district": null,
+        "listing_url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-no-location-333444",
+        "source": "sahibinden",
+        "confidence": "medium"
+      }
+    },
+    {
+      "url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-sparse-555666",
+      "reason": "Parser extracted only 1 meaningful field(s), minimum is 2",
+      "timestamp": "2026-02-02T14:32:12.123456",
+      "data_snapshot": {
+        "office_name": "SOME OFFICE",
+        "agent_name": null,
+        "phone_number": null,
+        "city": null,
+        "district": null,
+        "listing_url": "https://www.sahibinden.com/ilan/emlak-konut-kiralik-sparse-555666"
+      }
+    }
+  ],
+  "stats": {
+    "total": 15,
+    "fetched": 13,
+    "parsed": 12,
+    "normalized": 11,
+    "inserted": 6,
+    "updated": 2,
+    "failed": 3,
+    "quality_rejected": 3
+  },
+  "failure_breakdown": {
+    "fetch_failed": 2,
+    "parse_failed": 1,
+    "normalize_failed": 0,
+    "persist_failed": 0,
+    "quality_rejected": 3
+  }
+}

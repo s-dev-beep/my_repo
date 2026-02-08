@@ -1,0 +1,29 @@
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py:127: RuntimeWarning: 'src.cli.main' found in sys.modules after import of package 'src.cli', but prior to execution of 'src.cli.main'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+[32mINFO    [0m | src.cli.commands - Loading URLs from: proof_of_truth_urls.txt
+[32mINFO    [0m | src.cli.loaders - Loading URLs from: proof_of_truth_urls.txt
+[32mINFO    [0m | src.cli.loaders - Loaded 40 URLs from proof_of_truth_urls.txt
+[32mINFO    [0m | src.cli.loaders - Loading default config from: config/default.yaml
+[32mINFO    [0m | src.cli.commands - Overriding run_mode with CLI flag: safe_run
+[32mINFO    [0m | src.cli.commands - Execution mode: safe_run
+[32mINFO    [0m | src.cli.loaders - Detected parser type: sahibinden
+[32mINFO    [0m | src.cli.loaders - Creating SahibindenParser instance
+[32mINFO    [0m | src.core.parser - Parser initialized for site: sahibinden
+[32mINFO    [0m | src.core.reporting_events - Reporter initialized: run_id=crawl_20260202_175430
+[32mINFO    [0m | src.cli.commands - Initializing Crawler...
+[32mINFO    [0m | src.core.normalizer - Normalizer initialized
+[32mINFO    [0m | src.core.deduplicator - Deduplicator initialized with empty entity sets
+[32mINFO    [0m | src.core.fetcher - Fetcher initialized: timeout=30s, max_retries=3, rate_limit=10req/min, proxy=disabled
+[32mINFO    [0m | src.core.crawler_core - Crawler initialized: parser=sahibinden, db=real_estate_crawler, run_mode=safe_run, quality_gates=enabled
+[32mINFO    [0m | src.cli.commands - Starting crawl with 40 URLs...
+[32mINFO    [0m | src.cli.commands - Parser: sahibinden
+[32mINFO    [0m | src.cli.commands - Mode: safe_run
+[32mINFO    [0m | src.core.crawler_core - Starting crawl: 40 URLs to process
+[32mINFO    [0m | src.core.crawler_core - Execution mode: safe_run
+[32mINFO    [0m | src.core.crawler_core - SAFE RUN: Only high/medium confidence listings will persist
+[32mINFO    [0m | src.db.mongo_connection - MongoDBConnection initialized (db=real_estate_crawler)
+[32mINFO    [0m | src.db.mongo_connection - Connected to MongoDB: real_estate_crawler
+[32mINFO    [0m | src.core.crawler_core - [1/40] Processing: https://www.sahibinden.com/kiralik-daire-istanbul-besiktas-8547985
+[32mINFO    [0m | src.core.fetcher - Fetching (attempt 1): https://www.sahibinden.com/kiralik-daire-istanbul-besiktas-8547985
+[33mWARNING [0m | src.core.fetcher - Block detected for www.sahibinden.com (status 403/429). Recent blocks: 1/3
+[33mWARNING [0m | src.core.fetcher - Got status 403, backing off and retrying (1/3)

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-03T02:07:23.605726",
+  "result": {
+    "url": "https://www.sahibinden.com/ilan/emlak-konut-satilik-216-sancaktepe-evlerinde-2-plus1-120m2-bahce-dubleksi-1287372619/detay",
+    "status": 403,
+    "title": "Olağan dışı erişim tespit ettik...",
+    "phone_found": false,
+    "page_content_length": 138,
+    "block_detected": false,
+    "screenshot": "reports/browser_test_screenshot.png"
+  }
+}

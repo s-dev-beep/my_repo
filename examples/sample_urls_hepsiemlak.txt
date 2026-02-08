@@ -1,0 +1,6 @@
+# Example URLs for hepsiemlak.com
+# Lines starting with # are comments and will be ignored
+
+https://www.hepsiemlak.com/sample-listing-1
+https://www.hepsiemlak.com/sample-listing-2
+https://www.hepsiemlak.com/sample-listing-3

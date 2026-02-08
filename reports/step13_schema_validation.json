@@ -1,0 +1,41 @@
+{
+  "status": "PASSED_WITH_WARNINGS",
+  "timestamp": "\"2026-02-02 18:06:07.833167\"",
+  "entities_validated": {
+    "listings": {
+      "total": 8,
+      "valid": 8,
+      "warnings": 8,
+      "errors": 0
+    },
+    "offices": {
+      "total": 7,
+      "valid": 7,
+      "warnings": 0,
+      "errors": 0
+    },
+    "agents": {
+      "total": 8,
+      "valid": 8,
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "total": {
+    "entities": 23,
+    "valid": 23,
+    "warnings": 8,
+    "errors": 0
+  },
+  "schema_checklist": {
+    "Listings have required listing_url": true,
+    "Listings use uppercase office names": true,
+    "Listings use uppercase agent names": true,
+    "Phone numbers in E.164 format": true,
+    "Offices have required name": true,
+    "Agents have required name": true,
+    "All entities have _metadata": true,
+    "Deduplication keys are unique": true,
+    "Phone ownership replicated correctly": true
+  }
+}
